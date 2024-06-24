@@ -6,7 +6,12 @@
       投稿日時: <%= post.created_at %>
     </div>
     <div class="post-content">
-      <%= post.content %>
+       <%= post.content.body %>
+      <% post.content.embeds.each do |blob| %>
+        <% if blob.image? %>
+          <%= image_tag blob %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 <% end %>  
